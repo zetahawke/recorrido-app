@@ -1,17 +1,17 @@
 import React from 'react';
 import { Layout } from 'antd';
-import Icon from '@ant-design/icons';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 const { Header } = Layout;
 
-const MainHeader = (props) => {
+const MainHeader = ({toggle, collapsed}) => {
+  console.log(toggle, collapsed)
   return (
     <Header className='main-header'>
-      <Icon
-        className="trigger"
-        type={props.collapsed ? "menu-unfold" : "menu-fold"}
-        style={{ cursor: "pointer" }}
-        onClick={props.toggle}
-      />
+      {
+        collapsed ?
+          <MenuFoldOutlined className="trigger" onClick={toggle}/> :
+          <MenuUnfoldOutlined className="trigger" onClick={toggle}/>
+      }
     </Header>
   );
 }
