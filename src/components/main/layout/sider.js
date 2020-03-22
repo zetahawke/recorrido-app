@@ -4,13 +4,13 @@ import MainMenu from './sider/menu';
 
 const { Sider } = Layout;
 
-const MainSider = (props) => {
+const MainSider = ({collapsed, onCollapse}) => {
   return (
     <>
       <Sider
         collapsible
-        collapsed={props.collapsed}
-        onCollapse={props.onCollapse}
+        collapsed={collapsed}
+        onCollapse={onCollapse}
       >
         <div className="logo" />
         <MainMenu></MainMenu>
