@@ -7,7 +7,7 @@ const Dashboard = () => {
       <title>
         Dashboard
       </title>
-      asdasdsad
+      testing body from a dashboard frame body content
     </div>
   );
 }
