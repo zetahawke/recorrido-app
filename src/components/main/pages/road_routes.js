@@ -3,9 +3,9 @@ import React from 'react';
 const RoadRoutes = () => {
   return (
     <div>
-      <title>
+      <h1>
         Road Routes
-      </title>
+      </h1>
     </div>
   );
 }
