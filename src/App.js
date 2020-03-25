@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import MainRouter from './components/main/app_router';
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from './components/main/app_router';
 
 class RecorridoApp extends React.PureComponent {
   render () {
     return (
-      <>      
-        <MainRouter />
-      </>
+      <BrowserRouter>      
+        <AppRouter />
+      </BrowserRouter>
     );
   }
 }
