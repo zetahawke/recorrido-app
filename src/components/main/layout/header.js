@@ -4,7 +4,6 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 const { Header } = Layout;
 
 const MainHeader = ({toggle, collapsed}) => {
-  console.log(toggle, collapsed)
   return (
     <Header className='main-header'>
       {
