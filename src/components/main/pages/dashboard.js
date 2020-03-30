@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Select, DatePicker, Input, Form, Button } from 'antd';
 import RoutesTable from './routes/table';
-import moment from 'moment';
+import RoutesSearchForm from './routes/search_form';
 
 const Dashboard = () => {
   const [results, setResults] = useState([]);
 
   const onFinish = values => {
-    debugger;
     const fetchParams = {
       destiny: values.destiny,
       date: values.date.format('L'),
@@ -44,23 +42,7 @@ const Dashboard = () => {
         Busca recorridos
       </h1>
       <br />
-      <Form layout='inline' onFinish={onFinish}>
-        <Form.Item label='Destino' name='destiny'>
-          <Select defaultValue="stg">
-            <Select.Option value="stg">Santiago / Peor es Nada</Select.Option>
-            <Select.Option value="psn">Peor es Nada / Santiago</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item label='Fecha' name='date'>
-          <DatePicker defaultValue={moment()} />
-        </Form.Item>
-        <Form.Item label='Patente (opcional)' name='patent'>
-          <Input placeholder='ABCD12' />
-        </Form.Item>
-        <Form.Item>
-          <Button type='primary' htmlType='submit'>Buscar</Button>
-        </Form.Item>
-      </Form>
+      <RoutesSearchForm onFinish={onFinish} />
 
       <br />
       <hr />
