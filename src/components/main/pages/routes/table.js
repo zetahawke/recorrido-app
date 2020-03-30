@@ -3,8 +3,8 @@ import { Table, Row, Col, Card } from 'antd';
 
 const { Column } = Table;
 const routesTableProps = {
-  scroll: { x: 490 },
-  size: 'small',
+  scroll: { x: '100%' },
+  // size: 'default',
   showHeader: true
 }
 
