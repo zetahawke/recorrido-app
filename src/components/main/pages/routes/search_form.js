@@ -5,7 +5,7 @@ import moment from 'moment';
 const RoutesSearchForm = ({onFinish}) => {
   return (
     <Form layout='inline' onFinish={onFinish}>
-      <Form.Item label='Destino' name='destiny'>
+      <Form.Item label='Origen / Destino' name='origin'>
         <Select defaultValue="stg">
           <Select.Option value="stg">Santiago / Peor es Nada</Select.Option>
           <Select.Option value="psn">Peor es Nada / Santiago</Select.Option>

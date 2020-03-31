@@ -5,26 +5,34 @@ import RoutesSearchForm from './routes/search_form';
 const Dashboard = () => {
   const [results, setResults] = useState([]);
 
+  const objToQueryString = (obj) => {
+    const keyValuePairs = [];
+    for (const key in obj) {
+      keyValuePairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]));
+    }
+    return keyValuePairs.join('&');
+  }
+
   const onFinish = values => {
     const fetchParams = {
-      destiny: values.destiny,
-      date: values.date.format('L'),
+      origin: values.origin,
+      date: values.date.format('DD/MM/YYYY'),
       patent: values.patent,
     }
 
-    fetchResults(fetchParams);
+    fetchResults(objToQueryString(fetchParams));
   };
 
   const fetchResults = async (fetchParams) => {
-    fetch('http://localhost:3001/api/quotations', {
-      method: 'POST',
-      body: JSON.stringify(fetchParams),
+    fetch(`http://localhost:3001/v1/road_routes.json?${fetchParams}`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }
     })
       .then(res => res.json())
       .then((data) => {
+        debugger;
         setResults(data)
       })
       .catch(console.log);
@@ -49,7 +57,7 @@ const Dashboard = () => {
       <br />
 
       {results ? (
-        <RoutesTable results={results} />
+        <RoutesTable results={results.road_routes} />
       ) : null}
     </div>
   );
