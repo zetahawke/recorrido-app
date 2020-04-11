@@ -1,10 +1,10 @@
 import React from 'react';
 import { Table, Row, Col, Card } from 'antd';
+import { Link } from "react-router-dom";
 
 const { Column } = Table;
 const routesTableProps = {
   scroll: { x: '100%' },
-  // size: 'default',
   showHeader: true
 }
 
@@ -15,7 +15,7 @@ const RoutesTable = ({results}) => {
         <Col>
           <Card title={'Rutas encontradas'}>
             <Row gutter={24}>
-              <Table {...routesTableProps} dataSource={results}>
+              <Table {...routesTableProps} dataSource={results} rowKey={record => record.id}>
                 <Column
                   title='Patente del bus'
                   dataIndex='patent'
@@ -49,6 +49,15 @@ const RoutesTable = ({results}) => {
                   render={
                     value => {
                       return value
+                    }
+                  }
+                />
+                <Column
+                  title=''
+                  dataIndex='id'
+                  render={
+                    value => {
+                      return <a href={`/road_routes/${value}`}>Details</a>
                     }
                   }
                 />

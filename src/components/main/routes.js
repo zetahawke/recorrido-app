@@ -10,7 +10,7 @@ export const Routes = (
     <Route exact path="/">
       <Dashboard />
     </Route>
-    <Route exact path="/road_routes">
+    <Route exact path="/road_routes/:roadRouteId">
       <RoadRoutes />
     </Route>
   </Switch>
