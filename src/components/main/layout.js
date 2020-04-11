@@ -5,7 +5,7 @@ import MainFooter from './layout/footer'
 import MainHeader from './layout/header';
 import { Layout } from 'antd';
 
-class MainLayout extends React.PureComponent {
+class MainLayout extends React.Component {
   state = {
     collapsed: false
   };

@@ -14,7 +14,7 @@ const MainMenu = () => {
       <Menu.Item key="2">
         <ProfileOutlined />
         <span>RoadRoutes</span>
-        <Link to="/road_routes" />
+        <Link to="/road_routes/15" />
       </Menu.Item>
     </Menu>
   );

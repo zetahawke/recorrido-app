@@ -8,7 +8,9 @@ const Dashboard = () => {
   const objToQueryString = (obj) => {
     const keyValuePairs = [];
     for (const key in obj) {
-      keyValuePairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]));
+      if (obj[key]) {
+        keyValuePairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]));
+      }
     }
     return keyValuePairs.join('&');
   }
@@ -17,7 +19,7 @@ const Dashboard = () => {
     const fetchParams = {
       origin: values.origin,
       date: values.date.format('DD/MM/YYYY'),
-      patent: values.patent,
+      patent: values.patent || null,
     }
 
     fetchResults(objToQueryString(fetchParams));
@@ -32,7 +34,6 @@ const Dashboard = () => {
     })
       .then(res => res.json())
       .then((data) => {
-        debugger;
         setResults(data)
       })
       .catch(console.log);
